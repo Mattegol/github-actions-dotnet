@@ -44,4 +44,3 @@ jobs:
          - name: Swap slots
            run: |
              az webapp deployment slot swap -g ${{ inputs.resource_group_name }} -n ${{ inputs.app_service_name }} --slot slot --target-slot production --verbose
-
