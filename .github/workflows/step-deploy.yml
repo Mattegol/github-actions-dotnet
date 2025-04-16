@@ -48,12 +48,16 @@ jobs:
            run: |
              az bicep version
 
+         - name: List Directory Contents
+           run: |
+             ls -R
+         
          - name: Run Bicep
            run: |
              az deployment group create \
              --name ${{ inputs.env }}-deployment-${{ github.run_number }} \
-             --template-file infrastructure/main.bicep \
-             --parameters infrastructure/environments/${{ inputs.env }}.bicepparam \
+             --template-file ${{ github.workspace }}/infrastructure/main.bicep \
+             --parameters ${{ github.workspace }}/infrastructure/environments/${{ inputs.env }}.bicepparam \
              --resource-group ${{ inputs.resource_group_name }} \
              --verbose
 
