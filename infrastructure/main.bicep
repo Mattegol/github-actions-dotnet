@@ -1,4 +1,4 @@
-param location string = 'eastus'
+param location string = 'northeurope'
 @allowed(['dev', 'prod'])
 param environment string
 
